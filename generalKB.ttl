@@ -1,0 +1,111 @@
+@prefix ns1: <http://www.semanticweb.org/ionut/ontologies/2023/2/projects/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://www.semanticweb.org/ionut/ontologies/2023/2/projects> a owl:Ontology .
+
+ns1:Employee20234131091799968212 a ns1:Employee ;
+    ns1:hasName "AnaMaria"^^xsd:string .
+
+ns1:Project20234131010181859512 a ns1:Project ;
+    ns1:hasClass "Pyhton"^^xsd:string ;
+    ns1:hasCode "244"^^xsd:string ;
+    ns1:hasManager ns1:Employee2023413109108342212 ;
+    ns1:hasName "WeatherApp"^^xsd:string ;
+    ns1:hasStatus ns1:Status2 .
+
+ns1:Project20234131011748331212 a ns1:Project ;
+    ns1:hasClass "Java"^^xsd:string ;
+    ns1:hasCode "675"^^xsd:string ;
+    ns1:hasManager ns1:Employee11111111111111111111 ;
+    ns1:hasName "FinanceHelper"^^xsd:string ;
+    ns1:hasStatus ns1:Status2 .
+
+ns1:Project20234131092694597612 a ns1:Project ;
+    ns1:hasClass "Pyhton"^^xsd:string ;
+    ns1:hasCode "123"^^xsd:string ;
+    ns1:hasManager ns1:Employee2023413109108342212 ;
+    ns1:hasName "Taskmate"^^xsd:string ;
+    ns1:hasStatus ns1:Status1 .
+
+ns1:hasClass a owl:ObjectProperty ;
+    rdfs:domain ns1:Project ;
+    rdfs:range [ a owl:Restriction ;
+            owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty owl:topDataProperty ] ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+ns1:hasCode a owl:ObjectProperty ;
+    rdfs:domain ns1:Project ;
+    rdfs:range [ a owl:Restriction ;
+            owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty owl:topDataProperty ] ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+ns1:hasManager a owl:ObjectProperty ;
+    rdfs:domain ns1:Project ;
+    rdfs:range [ a owl:Restriction ;
+            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+            owl:onClass ns1:Employee ;
+            owl:onProperty owl:topObjectProperty ] ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+ns1:hasName a owl:ObjectProperty ;
+    rdfs:domain owl:Thing ;
+    rdfs:range [ a owl:Restriction ;
+            owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty owl:topDataProperty ] ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+ns1:hasRole a owl:ObjectProperty ;
+    rdfs:domain ns1:Employee ;
+    rdfs:range [ a owl:Restriction ;
+            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty owl:topDataProperty ] ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+ns1:hasStatus a owl:ObjectProperty ;
+    rdfs:domain ns1:Project ;
+    rdfs:range [ a owl:Restriction ;
+            owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onClass ns1:Status ;
+            owl:onProperty owl:topObjectProperty ] ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+ns1:isCompleted a owl:DatatypeProperty ;
+    rdfs:domain ns1:Status ;
+    rdfs:range xsd:boolean .
+
+ns1:Employee11111111111111111111 a ns1:Employee ;
+    ns1:hasName "John"^^xsd:string ;
+    ns1:hasRole "Analyst"^^xsd:string.
+
+ns1:Person a owl:Class;
+    ns1:category 'human'.
+
+ns1:Status1 a ns1:Status,
+        owl:NamedIndividual ;
+    ns1:hasName "finished"^^xsd:string .
+
+ns1:Employee2023413109108342212 a ns1:Employee ;
+    ns1:hasName "Ana"^^xsd:string .
+
+ns1:Status2 a ns1:Status,
+        owl:NamedIndividual ;
+    ns1:hasName "unfinished"^^xsd:string .
+
+ns1:Employee a owl:Class ;
+    rdfs:subClassOf ns1:Person;
+    ns1:category 'human'.
+
+ns1:Status a owl:Class;
+        ns1:category 'thing'.
+
+ns1:Project a owl:Class;
+        ns1:category 'thing'.
+
