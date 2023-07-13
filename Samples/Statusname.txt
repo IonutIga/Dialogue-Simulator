@@ -1,0 +1,8 @@
+finished
+unfinished
+done
+postponed
+in-progress
+emergency
+delayed
+completed

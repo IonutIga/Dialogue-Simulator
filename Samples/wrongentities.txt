@@ -1,0 +1,11 @@
+Cat
+Car
+Cow
+Train
+Museum
+Building
+Tree
+Bird
+House
+Phone
+Laptop
